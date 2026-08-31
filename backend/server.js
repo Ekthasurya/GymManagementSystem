@@ -53,12 +53,12 @@ app.use("/api/dashboard",dashboardRoutes);
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "Gym Management API is running",
+    message: "Gym Management API is running ",
   });
 });
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Backend Server running on port ${PORT}`);
 });
