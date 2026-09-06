@@ -54,6 +54,9 @@ import MemberDiet from "../pages/member/Diet";
 import MemberProgress from "../pages/member/Progress";
 import Profile from "../pages/member/Profile";
 
+import MemberProgress from "../pages/member/Progress";
+import TrainerProgress from "../pages/trainer/Progress";
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -430,6 +433,16 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+
+      <Route
+  path="/trainer/progress"
+  element={<TrainerProgress />}
+/>
+
+<Route
+  path="/member/progress"
+  element={<MemberProgress />}
+/>
 
 
       {/* ================= DEFAULT ================= */}
