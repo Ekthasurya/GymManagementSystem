@@ -8,10 +8,9 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 
-import PaymentStatus from "../../components/payments/PaymentStatus";
-import PaymentReceipt from "../../components/payments/PaymentReceipt";
-
-import usePayments from "../../hooks/usePayments";
+import PaymentStatus from "../../../components/payments/PaymentStatus.jsx";
+import PaymentReceipt from "../../../components/payments/PaymentReceipt.jsx";
+import usePayments from "../../../hooks/usePayments.js";
 
 
 const Payments = () => {

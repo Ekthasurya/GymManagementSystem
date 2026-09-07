@@ -35,39 +35,30 @@ import PaymentDetails from "../pages/admin/payments/PaymentDetails";
 import Reports from "../pages/admin/reports/Reports";
 
 // Trainer
-import TrainerDashboard from "../pages/trainer/Dashboard";
-import MyMembers from "../pages/trainer/MyMembers";
-
 import Workouts from "../pages/trainer/Workouts";
 import CreateWorkout from "../pages/trainer/CreateWorkout";
-
 import DietPlans from "../pages/trainer/DietPlans";
 import CreateDietPlan from "../pages/trainer/CreateDietPlan";
+import TrainerProgress from "../pages/trainer/Progress";
 
 // Member
-import MemberDashboard from "../pages/member/Dashboard";
-import Membership from "../pages/member/Membership";
+import Membership from "../pages/admin/members/Membership";
+import MemberPayments from "../pages/admin/members/Payments";
+
 import MemberAttendance from "../pages/member/Attendance";
-import MemberPayments from "../pages/member/Payments";
 import MemberWorkout from "../pages/member/Workout";
 import MemberDiet from "../pages/member/Diet";
 import MemberProgress from "../pages/member/Progress";
-import Profile from "../pages/member/Profile";
-
-import MemberProgress from "../pages/member/Progress";
-import TrainerProgress from "../pages/trainer/Progress";
 
 const AppRoutes = () => {
   return (
     <Routes>
-
       {/* ================= AUTH ================= */}
 
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password/:token" element={<ResetPassword />} />
-
 
       {/* ================= ADMIN ================= */}
 
@@ -127,7 +118,6 @@ const AppRoutes = () => {
         }
       />
 
-
       {/* Trainers */}
       <Route
         path="/admin/trainers"
@@ -172,7 +162,6 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-
 
       {/* Membership */}
       <Route
@@ -219,7 +208,6 @@ const AppRoutes = () => {
         }
       />
 
-
       {/* Attendance */}
       <Route
         path="/admin/attendance"
@@ -231,7 +219,6 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-
 
       {/* Payments */}
       <Route
@@ -256,7 +243,6 @@ const AppRoutes = () => {
         }
       />
 
-
       {/* Reports */}
       <Route
         path="/admin/reports"
@@ -269,33 +255,8 @@ const AppRoutes = () => {
         }
       />
 
-
       {/* ================= TRAINER ================= */}
 
-      <Route
-        path="/trainer/dashboard"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["trainer"]}>
-              <TrainerDashboard />
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/trainer/members"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["trainer"]}>
-              <MyMembers />
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
-
-
-      {/* Workout */}
       <Route
         path="/trainer/workouts"
         element={
@@ -318,8 +279,6 @@ const AppRoutes = () => {
         }
       />
 
-
-      {/* Diet */}
       <Route
         path="/trainer/diet-plans"
         element={
@@ -342,19 +301,18 @@ const AppRoutes = () => {
         }
       />
 
-
-      {/* ================= MEMBER ================= */}
-
       <Route
-        path="/member/dashboard"
+        path="/trainer/progress"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["member"]}>
-              <MemberDashboard />
+            <RoleRoute allowedRoles={["trainer"]}>
+              <TrainerProgress />
             </RoleRoute>
           </ProtectedRoute>
         }
       />
+
+      {/* ================= MEMBER ================= */}
 
       <Route
         path="/member/membership"
@@ -400,7 +358,6 @@ const AppRoutes = () => {
         }
       />
 
-      {/* Member Diet */}
       <Route
         path="/member/diet"
         element={
@@ -423,34 +380,12 @@ const AppRoutes = () => {
         }
       />
 
-      <Route
-        path="/member/profile"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["member"]}>
-              <Profile />
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-  path="/trainer/progress"
-  element={<TrainerProgress />}
-/>
-
-<Route
-  path="/member/progress"
-  element={<MemberProgress />}
-/>
-
-
       {/* ================= DEFAULT ================= */}
 
       <Route path="*" element={<Login />} />
-
     </Routes>
   );
 };
 
 export default AppRoutes;
+

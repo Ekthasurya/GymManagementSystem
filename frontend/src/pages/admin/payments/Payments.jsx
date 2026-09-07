@@ -19,7 +19,7 @@ import {
 } from "../../../services/paymentService";
 
 import {
-  getAllMembers,
+  getMembers,
 } from "../../../services/memberService";
 
 import {
@@ -101,7 +101,7 @@ const Payments = () => {
           memberResponse,
           membershipResponse,
         ] = await Promise.all([
-          getAllMembers(),
+          getMembers(),,
           getMembershipPlans(),
         ]);
 

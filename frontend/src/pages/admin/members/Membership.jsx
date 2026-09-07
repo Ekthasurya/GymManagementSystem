@@ -2,15 +2,10 @@ import { useEffect, useState } from "react";
 
 import toast from "react-hot-toast";
 
-import {
-  getMemberMembership,
-} from "../../services/membershipService";
-
-import MembershipStatus from "../../components/memberships/MembershipStatus";
-
-import RenewMembership from "../../components/memberships/RenewMembership";
-
-import { useAuth } from "../../hooks/useAuth";
+import { getMemberMembership } from "../../../services/membershipService";
+import MembershipStatus from "../../../components/memberships/MembershipStatus";
+import RenewMembership from "../../../components/memberships/renewMembership";
+import useAuth from "../../../hooks/useAuth";
 
 const Membership = () => {
 
