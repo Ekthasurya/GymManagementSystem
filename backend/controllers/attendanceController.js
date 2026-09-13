@@ -1,5 +1,4 @@
-import Attendance from "../models/Attendance.js";
-import Member from "../models/Member.js";
+
 import Attendance from "../models/Attendance.js";
 import Member from "../models/Member.js";
 import Membership from "../models/Membership.js";
@@ -229,6 +228,44 @@ export const getMemberAttendance = async (
         totalDays,
         completedDays,
       },
+      attendance,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// ========================================
+// GET TODAY'S ATTENDANCE
+// ========================================
+
+export const getTodayAttendance = async (req, res) => {
+  try {
+    const today = new Date()
+      .toISOString()
+      .split("T")[0];
+
+    const attendance = await Attendance.find({
+      date: today,
+    })
+      .populate({
+        path: "member",
+        populate: {
+          path: "user",
+          select: "name email phone",
+        },
+      })
+      .sort({
+        checkIn: -1,
+      });
+
+    res.status(200).json({
+      success: true,
+      date: today,
+      count: attendance.length,
       attendance,
     });
   } catch (error) {
