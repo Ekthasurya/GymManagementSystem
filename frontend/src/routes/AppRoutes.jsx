@@ -40,11 +40,12 @@ import CreateWorkout from "../pages/trainer/CreateWorkout";
 import DietPlans from "../pages/trainer/DietPlans";
 import CreateDietPlan from "../pages/trainer/CreateDietPlan";
 import TrainerProgress from "../pages/trainer/Progress";
+import TrainerDashboard from "../pages/trainer/Dashboard";
 
 // Member
 import Membership from "../pages/admin/members/Membership";
 import MemberPayments from "../pages/admin/members/Payments";
-
+import MemberDashboard from "../pages/member/Dashboard";
 import MemberAttendance from "../pages/member/Attendance";
 import MemberWorkout from "../pages/member/Workout";
 import MemberDiet from "../pages/member/Diet";
@@ -62,16 +63,7 @@ const AppRoutes = () => {
 
       {/* ================= ADMIN ================= */}
 
-      <Route
-        path="/admin/dashboard"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin"]}>
-              <AdminDashboard />
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
 
       {/* Members */}
       <Route
@@ -84,6 +76,8 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+
+      <Route path="/member/dashboard" element={<MemberDashboard />} />
 
       <Route
         path="/admin/members/add"
@@ -257,6 +251,8 @@ const AppRoutes = () => {
 
       {/* ================= TRAINER ================= */}
 
+      <Route path="/trainer/dashboard" element={<TrainerDashboard />} />
+
       <Route
         path="/trainer/workouts"
         element={
@@ -388,4 +384,3 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
-
